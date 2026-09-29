@@ -1,0 +1,6 @@
+{
+  "name": "솔 인챈트 보스 리젠 타이머",
+  "description": "솔 인챈트 보스 리젠 타이머, 서버 보스타임 진행, 수집템 강화 요청소 및 썰자 이벤트 참여 실시간 길드원 공유 대시보드",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

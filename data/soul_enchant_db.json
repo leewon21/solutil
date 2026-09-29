@@ -1,0 +1,93 @@
+{
+  "config": {
+    "guildName": "린델1서버 - 참교육",
+    "guildPassword": "1234",
+    "announcement": "처치 시 즉시 [처치 기록]을 눌러 길드원들과 시간을 공유하세요!"
+  },
+  "bosses": [
+    {
+      "id": "boss-forsaken-god",
+      "name": "신을 버린자",
+      "region": "51. 오크네집",
+      "channel": "1채널",
+      "respawnMinutes": 240,
+      "lastKillTime": null,
+      "lastKillerId": null,
+      "nextSpawnTime": null,
+      "notes": "광폭화 스킬 주의! 전설 솔 스톤 및 심연의 파편 드랍",
+      "difficulty": "SS",
+      "dropItems": [
+        "심연의 영혼석",
+        "버려진 자의 비수",
+        "전설 인챈트 주문서"
+      ],
+      "updatedAt": "2026-09-17T09:10:30.312Z"
+    },
+    {
+      "id": "boss-creation-core",
+      "name": "창조의 핵",
+      "region": "태초의 성소 (중앙 제단)",
+      "channel": "전 채널 순차",
+      "respawnMinutes": 360,
+      "lastKillTime": null,
+      "lastKillerId": null,
+      "nextSpawnTime": null,
+      "notes": "전 범위 파멸 광역기 시전, 신성 보호막 필수",
+      "difficulty": "SS",
+      "dropItems": [
+        "창조의 파편",
+        "태초의 심장",
+        "고대 마력 증폭서"
+      ],
+      "updatedAt": "2026-09-17T03:58:00.164Z"
+    },
+    {
+      "id": "boss-corrupted-seraph",
+      "name": "타락한 세라프",
+      "region": "망각의 성채 (최상층)",
+      "channel": "1채널",
+      "respawnMinutes": 180,
+      "lastKillTime": null,
+      "lastKillerId": null,
+      "nextSpawnTime": null,
+      "notes": "공중 폭격 패턴, 회피 이동 권장",
+      "difficulty": "S",
+      "dropItems": [
+        "타락의 깃털",
+        "세라프의 관",
+        "영혼 봉인석"
+      ],
+      "updatedAt": "2026-09-17T03:58:00.164Z"
+    },
+    {
+      "id": "boss-abyss-gargoyle",
+      "name": "심연의 가고일",
+      "region": "통곡의 회랑 (동쪽 입구)",
+      "channel": "2채널",
+      "respawnMinutes": 120,
+      "lastKillTime": null,
+      "lastKillerId": null,
+      "nextSpawnTime": null,
+      "notes": "석화 공격 주의, 근접 딜러 방어력 버프 필요",
+      "difficulty": "A",
+      "dropItems": [
+        "가고일의 석핵",
+        "견고한 비늘 갑옷"
+      ],
+      "updatedAt": "2026-09-17T03:58:00.164Z"
+    }
+  ],
+  "logs": [
+    {
+      "id": "log_1789617487964_02bu",
+      "bossId": "boss-forsaken-god",
+      "bossName": "신을 버린자",
+      "region": "황혼의 심연 (지하 2층)",
+      "channel": "1채널",
+      "killerId": "테스트기사",
+      "killTime": "2026-09-17T03:58:07.964Z",
+      "nextSpawnTime": "2026-09-17T07:58:07.964Z",
+      "loggedAt": "2026-09-17T03:58:07.964Z"
+    }
+  ]
+}

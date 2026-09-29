@@ -1,0 +1,163 @@
+{
+  "entities": {
+    "Boss": {
+      "title": "Boss",
+      "description": "Boss monster information and respawn timer state",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "region": { "type": "string" },
+        "channel": { "type": "string" },
+        "respawnMinutes": { "type": "number" },
+        "lastKillTime": { "type": "string" },
+        "lastKillerId": { "type": "string" },
+        "nextSpawnTime": { "type": "string" },
+        "notes": { "type": "string" },
+        "difficulty": { "type": "string" },
+        "dropItems": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "region", "respawnMinutes"]
+    },
+    "KillLog": {
+      "title": "KillLog",
+      "description": "Historical log entry when a boss is defeated",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "bossId": { "type": "string" },
+        "bossName": { "type": "string" },
+        "region": { "type": "string" },
+        "channel": { "type": "string" },
+        "killerId": { "type": "string" },
+        "killTime": { "type": "string" },
+        "nextSpawnTime": { "type": "string" },
+        "loggedAt": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "bossId", "bossName", "killerId", "killTime", "nextSpawnTime", "loggedAt"]
+    },
+    "GuildConfig": {
+      "title": "GuildConfig",
+      "description": "Guild settings and shared notice",
+      "type": "object",
+      "properties": {
+        "guildName": { "type": "string" },
+        "guildPassword": { "type": "string" },
+        "announcement": { "type": "string" },
+        "activeMembers": { "type": "number" }
+      },
+      "required": ["guildName"]
+    },
+    "Presence": {
+      "title": "Presence",
+      "description": "Real-time presence and heartbeat for active connected guild members",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "sessionId": { "type": "string" },
+        "lastSeen": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "sessionId", "lastSeen"]
+    },
+    "EnhancementRequest": {
+      "title": "EnhancementRequest",
+      "description": "User requested item enhancement list with password protection",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "password": { "type": "string" },
+        "items": { "type": "array" },
+        "memo": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "password", "items", "createdAt"]
+    },
+    "HostileTarget": {
+      "title": "HostileTarget",
+      "description": "Watchlist or hostile targets registered by guild members",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "targetId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "memo": { "type": "string" }
+      },
+      "required": ["id", "targetId", "createdAt", "createdBy"]
+    },
+    "DeletedHostileTarget": {
+      "title": "DeletedHostileTarget",
+      "description": "Record of released or deleted hostile targets to prevent re-seeding",
+      "type": "object",
+      "properties": {
+        "targetId": { "type": "string" },
+        "targetName": { "type": "string" },
+        "deletedAt": { "type": "string" }
+      },
+      "required": ["targetId", "targetName"]
+    },
+    "SsuljaRecord": {
+      "title": "SsuljaRecord",
+      "description": "PK / battle log record extracted from screenshot for Ssulja event participation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "occurredAt": { "type": "string" },
+        "contributionType": { "type": "string" },
+        "targetId": { "type": "string" },
+        "targetGuild": { "type": "string" },
+        "uploaderId": { "type": "string" },
+        "uploadedAt": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "occurredAt", "contributionType", "targetId", "uploaderId", "uploadedAt"]
+    }
+  },
+  "firestore": {
+    "/bosses/{bossId}": {
+      "schema": { "$ref": "#/entities/Boss" },
+      "description": "Collection of boss monsters tracked by the guild"
+    },
+    "/killLogs/{logId}": {
+      "schema": { "$ref": "#/entities/KillLog" },
+      "description": "Collection of boss kill logs"
+    },
+    "/guildConfig/{configId}": {
+      "schema": { "$ref": "#/entities/GuildConfig" },
+      "description": "Guild configuration and announcements"
+    },
+    "/presence/{sessionId}": {
+      "schema": { "$ref": "#/entities/Presence" },
+      "description": "Collection of real-time active user heartbeats"
+    },
+    "/serverBosses/{bossId}": {
+      "schema": { "$ref": "#/entities/Boss" },
+      "description": "Collection of server world boss monsters"
+    },
+    "/serverKillLogs/{logId}": {
+      "schema": { "$ref": "#/entities/KillLog" },
+      "description": "Collection of server world boss kill logs"
+    },
+    "/enhancementRequests/{requestId}": {
+      "schema": { "$ref": "#/entities/EnhancementRequest" },
+      "description": "Collection of collection item enhancement requests"
+    },
+    "/hostileTargets/{targetId}": {
+      "schema": { "$ref": "#/entities/HostileTarget" },
+      "description": "Collection of hostile targets"
+    },
+    "/deletedHostileTargets/{docId}": {
+      "schema": { "$ref": "#/entities/DeletedHostileTarget" },
+      "description": "Collection of released or deleted hostile target records"
+    },
+    "/ssuljaRecords/{recordId}": {
+      "schema": { "$ref": "#/entities/SsuljaRecord" },
+      "description": "Collection of PK / battle event records extracted from screenshots"
+    }
+  }
+}

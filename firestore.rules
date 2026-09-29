@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /bosses/{bossId} {
+      allow read, write: if true;
+    }
+
+    match /killLogs/{logId} {
+      allow read, write: if true;
+    }
+
+    match /guildConfig/{configId} {
+      allow read, write: if true;
+    }
+
+    match /presence/{sessionId} {
+      allow read, write: if true;
+    }
+
+    match /serverBosses/{bossId} {
+      allow read, write: if true;
+    }
+
+    match /serverKillLogs/{logId} {
+      allow read, write: if true;
+    }
+
+    match /enhancementRequests/{requestId} {
+      allow read, write: if true;
+    }
+
+    match /hostileTargets/{targetId} {
+      allow read, write: if true;
+    }
+
+    match /deletedHostileTargets/{docId} {
+      allow read, write: if true;
+    }
+
+    match /ssuljaRecords/{recordId} {
+      allow read, write: if true;
+    }
+  }
+}
